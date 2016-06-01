@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: nginx
+  labels:
+    name: nginx 
+spec:
+  replicas: 2
+  selector:
+    name: nginx
+  template:
+    metadata:
+      labels:
+        name: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: sameersbn/owncloud:9.0.0-1
+        args: ["app:nginx"]
+        env:
+         - name: OWNCLOUD_URL
+           value: http://10.254.10.10
+
+         - name: OWNCLOUD_PHP_FPM_HOST
+           value: 10.254.10.30
+         - name: OWNCLOUD_PHP_FPM_PORT
+           value: "9000"
+       
+        ports:
+          - name: http
+            containerPort: 80
+            protocol: TCP
