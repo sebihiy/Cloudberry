@@ -1,5 +1,5 @@
 # Cloudberry
-Cloud storage  sur les raspberry Pi 2 :
+Cloud storage  sur les raspberry Pi 2 : (version beta)
 - Gluster 
 - pfsense
 - Haproxy
